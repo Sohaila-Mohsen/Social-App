@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">gpp</string>
+<string name="facebook_app_id">7388744034531755</string>
+<string name="fb_login_protocol_scheme">fb7388744034531755</string>
+<string name="facebook_client_token">98e6163b6884fe09ecbf7109436a36a3</string>
+</resources>
