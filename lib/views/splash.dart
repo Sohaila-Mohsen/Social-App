@@ -7,11 +7,14 @@ import '../core/utils/navigation.dart';
 import '../core/utils/sizeConfig.dart';
 
 class SplachScreen extends StatefulWidget {
+  const SplachScreen({Key? key}) : super(key: key);
+
   @override
   _SplachScreenState createState() => _SplachScreenState();
 }
 
 class _SplachScreenState extends State<SplachScreen> {
+  @override
   void initState() {
     super.initState();
     startTime();

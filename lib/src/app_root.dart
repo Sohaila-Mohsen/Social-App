@@ -13,7 +13,7 @@ class AppRoot extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(primaryColor: Colors.black),
-          home: SplachScreen(),
+          home: const SplachScreen(),
         ));
   }
 }

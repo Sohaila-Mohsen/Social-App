@@ -13,53 +13,54 @@ class Home extends StatefulWidget {
   @override
   State<Home> createState() => _HomeState();
 }
-
 class _HomeState extends State<Home> {
   Map? _userData;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 30, vertical: 150),
+        margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 150),
         child: Column(
           children: [
             Lottie.asset('Assets/images/73937-social.json'),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 255, 15, 103),
-                    onPrimary: Color.fromARGB(255, 255, 255, 255),
-                    minimumSize: Size(double.infinity, 50)),
+                    primary: const Color.fromARGB(255, 255, 15, 103),
+                    onPrimary: const Color.fromARGB(255, 255, 255, 255),
+                    minimumSize: const Size(double.infinity, 50)),
                 label: const Text('Log In With Google'),
-                icon: FaIcon(FontAwesomeIcons.google),
+                icon: const FaIcon(FontAwesomeIcons.google),
                 onPressed: () async {
                   final provider =
                       Provider.of<GoogleSignInProvider>(context, listen: false);
                   await provider.googleLogin();
                   final user = FirebaseAuth.instance.currentUser;
-                  print(user);
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => Profile(
-                  //               userPic: user!.photoURL,
-                  //               email: user.email,
-                  //               name: user.displayName,
-                  //               type: 'google',
-                  //             )));
+                  if (user != null) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Profile(
+                                  userPic: user.photoURL,
+                                  email: user.email,
+                                  name: user.displayName,
+                                  type: 'google',
+                                )));
+                  }
+                  provider.googleLogout();
                 }),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(235, 97, 48, 255),
-                    onPrimary: Color.fromARGB(255, 255, 255, 255),
-                    minimumSize: Size(double.infinity, 50)),
+                    primary: const Color.fromARGB(235, 97, 48, 255),
+                    onPrimary: const Color.fromARGB(255, 255, 255, 255),
+                    minimumSize: const Size(double.infinity, 50)),
                 label: const Text('Log In  With Facebook'),
-                icon: FaIcon(FontAwesomeIcons.facebook),
+                icon: const FaIcon(FontAwesomeIcons.facebook),
                 onPressed: facebookLogin),
           ],
         ),
@@ -70,13 +71,10 @@ class _HomeState extends State<Home> {
   facebookLogin() async {
     final result =
         await FacebookAuth.i.login(permissions: ["public_profile", "email"]);
-
     if (result.status == LoginStatus.success) {
       final userData = await FacebookAuth.i.getUserData();
-
       setState(() {
-        _userData = userData;
-      });
+        _userData = userData;});
       Navigator.push(
           context,
           MaterialPageRoute(

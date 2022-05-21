@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:265637040993:android:81851ff3f6e97ebf142b20",
+        "mobilesdk_app_id": "1:265637040993:android:3b0bc4434dedc2f2142b20",
         "android_client_info": {
-          "package_name": "com.example.testfb"
+          "package_name": "com.example.spark"
         }
       },
       "oauth_client": [
         {
-          "client_id": "265637040993-qv362i9mg4pm0alb9jopflmurjfnq8ok.apps.googleusercontent.com",
+          "client_id": "265637040993-luh49vvjg270q7ae2u9u54f0sihk3npi.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.testfb",
+            "package_name": "com.example.spark",
             "certificate_hash": "33cb20329c9f5e467be15eabb7fac0522bbdf2f3"
           }
         },
